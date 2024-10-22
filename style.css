@@ -6,7 +6,6 @@ body {
 
 .container {
     margin-top: 50px;
-    display: flex;
 }
 
 .game-container {
@@ -25,7 +24,7 @@ body {
 
 .scoreboard-container {
     width: 200px;
-    text-align: center;
+    text-align: left;
 }
 
 .scoreboard {
