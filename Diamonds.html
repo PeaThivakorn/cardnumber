@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>นาย กิตติภัค เพชรแวว</title>
+  <script>
+    function fetchData(month) {
+      // URL จาก Google Apps Script ที่คุณได้รับ
+      const url = 'https://script.google.com/macros/s/AKfycbwstcgtzaOXqee3lX7viPQo2GF4c3konTVQR8apwG5VleUcwQYzIIKGxVuVC8uLo_dPjQ/exec?month=' + month;
+
+      // เคลียร์ข้อมูลเก่าก่อนเพื่อป้องกันการซ้อนกันของข้อมูล
+      document.getElementById('data').innerHTML = 'กำลังโหลดข้อมูล...';
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          let output = '<h2>ข้อมูลการบันทึกเวลา นาย กิตติภัค เพชรแวว </h2><table border="1">';
+          output += '<tr><th>ประทับเวลา</th><th>ชื่อ-สกุล</th><th>บันทึกเวลา</th><th>เวลา</th><th>ที่อยู่อีเมล</th><th>รหัสนักศึกษา</th><th>รหัสผ่าน</th><th>หมายเหตุ</th></tr>';
+          data.forEach(item => {
+            output += `<tr>
+                        <td>${item.Timestamp}</td>
+                        <td>${item.FullName}</td>
+                        <td>${item.RecordTime}</td>
+                        <td>${item.Time}</td>
+                        <td>${item.Email}</td>
+                        <td>${item.StudentID}</td>
+                        <td>${item.Password}</td>
+                        <td>${item.Note}</td>
+                      </tr>`;
+          });
+          output += '</table>';
+          document.getElementById('data').innerHTML = output;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function onMonthChange() {
+      const month = document.getElementById('monthPicker').value;
+      if (month) {  // ตรวจสอบว่าเลือกเดือนแล้ว
+        fetchData(month);  // เรียกใช้ fetchData กับเดือนที่เลือก
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h1>เลือกเดือนที่ต้องการแสดงข้อมูล</h1>
+  <!-- ฟอร์มสำหรับเลือกเดือน -->
+  <input type="month" id="monthPicker" onchange="onMonthChange()">
+  
+  <div id="data">กรุณาเลือกเดือนเพื่อแสดงข้อมูล...</div>
+
+</body>
+</html>
