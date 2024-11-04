@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Card Swap Game</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ค้นหาสินค้า</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Number Card Swap Game</h1>
-        <div class="game-container">
-            <div id="game-board" class="game-board"></div>
-            <div class="scoreboard-container">
-                <h2>Scoreboard</h2>
-                <div id="scoreboard" class="scoreboard"></div>
-            </div>
-        </div>
-        <button id="start-button">Start Game</button>
-    </div>
-    <script src="script.js"></script>
+    <h1>ค้นหาสินค้า</h1>
+    <input type="text" id="product-code" placeholder="กรอกโค้ดสินค้า">
+    <button onclick="fetchProductData()">ค้นหา</button>
+
+    <h2>รายละเอียดสินค้า</h2>
+    <img id="product-image" src="" alt="Product Image" width="300" style="display:none;">
+    <ul id="specs"></ul>
+
+    <script>
+        async function fetchProductData() {
+            const productCode = document.getElementById('product-code').value;
+            const response = await fetch('https://cardnumber.onrender.com/get_product_data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ product_code: productCode })
+            });
+            const data = await response.json();
+
+            document.getElementById('product-image').src = data.image_url;
+            document.getElementById('product-image').style.display = 'block';
+
+            const specsList = document.getElementById('specs');
+            specsList.innerHTML = '';  // ล้างข้อมูลเก่า
+            data.specs.forEach(spec => {
+                const li = document.createElement('li');
+                li.textContent = `${spec.name}: ${spec.value}`;
+                specsList.appendChild(li);
+            });
+        }
+    </script>
 </body>
 </html>
