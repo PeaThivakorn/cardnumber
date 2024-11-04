@@ -17,7 +17,7 @@
     <script>
         async function fetchProductData() {
             const productCode = document.getElementById('product-code').value;
-            const response = await fetch('https://cardnumber.onrender.com/get_product_data', {
+            const response = await fetch('https://advice-price.onrender.com//get_product_data', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ product_code: productCode })
