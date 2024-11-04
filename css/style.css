@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f6fb;
+}
+
+.container {
+    width: 768px;
+    height: 768px;
+    background-image: url('img/434648116_944479041010917_203762620117639066_n.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Image Sections */
+.img {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    position: absolute;
+}
+
+.img-left {
+    top: 260px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+}
+
+.img-center {
+    top: 260px;
+    left: 260px;
+    width: 250px;
+    height: 200px;
+}
+
+.img-right-top {
+    top: 260px;
+    right: 60px;
+    width: 80px;
+    height: 80px;
+}
+
+.img-right-bottom {
+    top: 350px;
+    right: 60px;
+    width: 80px;
+    height: 80px;
+}
+
+/* Logo and Text Section */
+.logo {
+    position: absolute;
+    top: 500px;
+    left: 60px;
+    width: 80px;
+    height: 55px;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 50px;
+}
+
+/* Short Text */
+.text-short {
+    position: absolute;
+    top: 500px;
+    left: 160px;
+    width: 250px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 50px;
+}
+
+.text-short-long {
+    position: absolute;
+    top: 530px;
+    left: 160px;
+    width: 250px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 50px;
+}
+
+/* Long Text */
+.text-long {
+    position: absolute;
+    top: 560px;
+    left: 60px;
+    width: 400px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 100px;
+}
+
+/* Price Sections */
+.price-left {
+    position: absolute;
+    top: 630px;
+    left: 600px;
+    width: 100px;
+    height: 25px;
+    background-color: rgba(255, 215, 0, 0.8);
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+.price-right {
+    position: absolute;
+    top: 660px;
+    left: 550px;
+    width: 150px;
+    height: 50px;
+    background-color: rgba(255, 215, 0, 0.8);
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+
+/* ซ่อนปุ่มพิมพ์เมื่ออยู่ในโหมดการพิมพ์ */
+@media print {
+    .print {
+        display: none;
+    }
+}
