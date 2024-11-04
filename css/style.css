@@ -16,7 +16,7 @@ body {
 .container {
     width: 768px;
     height: 768px;
-    background-image: url('img/434648116_944479041010917_203762620117639066_n.jpg');
+    background-image: url('/img/434648116_944479041010917_203762620117639066_n.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
