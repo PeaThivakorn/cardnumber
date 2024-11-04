@@ -1,0 +1,309 @@
+<html lang="en">
+
+<head>
+    <title>Print Notebook New</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.advice.co.th/public/advicedealer/printspec/css/bootstrap.min.css">
+</head>
+
+<body class="" style="">
+    <input type="hidden" name="code1" id="code1">
+    <input type="hidden" name="code2" id="code2">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <img src="https://www.advice.co.th/public/advicedealer/printspec/images/Header-Printspec.jpg"
+                    width="100%">
+            </div>
+        </div>
+
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-28871641-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments) };
+            gtag('js', new Date());
+            gtag('config', 'UA-28871641-1');
+        </script>
+        <h1>Notebook New A4</h1>
+        <hr>
+        <form id="myform" name="specprint" action="https://www.advice.co.th/advicedealer/printspec/notebook_new/a4"
+            target="_blank" method="post" onsubmit="setTimeout(function(){ op_submit() }, 2000);">
+            <div class="col-xs-12 col-sm-12 col-md-12 panel panel-default">
+                <div class="col-xs-6 col-sm-6 col-md-6" style="padding-top:20px">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-xs-8 col-sm-4 col-md-4">รหัสสินค้า / Barcode Advice/ IMEI /
+                                SERIAL : </label>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <input name="code" id="code" type="text" class="form-control"
+                                    style="text-transform:uppercase;" onfocusout="chk_type($(this).val( ),'1','code');">
+
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4"><span class="code"></span></div>
+                            <!--<div class="col-sm-3 col-md-3">
+                          <select name="currency" id="currency" class="form-control">
+                              <option value="B">BAHT</option>
+                              <option value="US">USD</option>
+                              <option value="LA">KIP</option>
+                              <option value="VI">VND</option>
+                              <option value="MA">KYAT</option>s
+                          </select>
+                      </div>-->
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-4 col-md-4">Sale : </label>
+                            <div class="col-xs-12 col-sm-3 col-md-8">
+                                <div class="radio">
+                                    <input type="radio" name="type_sale" id="sale" value="sale"
+                                        onclick="clearRadio(this);">
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" style="display:none;margin:0px" id="show_sale">
+                                <label class="control-label col-xs-4 col-sm-2 col-md-5">ราคาใหม่ : </label>
+                                <div class="col-xs-8 col-sm-3 col-md-3" style="padding:0px;">
+                                    <input type="text" name="price" id="price" maxlength="9" size="35"
+                                        onchange="check_saleprice()" class="form-control">
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-4"><strong
+                                        style="color:red">ใส่เฉพาะตัวเลข</strong></div>
+                            </div>
+                            <label class="control-label col-xs-12 col-sm-4 col-md-4">ตั้งราคาเอง : </label>
+                            <div class="col-xs-12 col-sm-3 col-md-8">
+                                <div class="radio">
+                                    <input type="radio" name="type_sale" id="sale2" value="fix_price"
+                                        onclick="clearRadio(this);">
+
+                                </div>
+
+                            </div>
+                            <div class="form-group" style="display:none;margin:0px" id="show_sale2">
+                                <label class="control-label col-xs-4 col-sm-2 col-md-5">ระบุราคาใหม่ : </label>
+                                <div class="col-xs-8 col-sm-3 col-md-3" style="padding:0px;">
+                                    <input type="text" name="price2" id="price2" maxlength="9" size="35"
+                                        onchange="check_saleprice()" class="form-control">
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-4"><strong
+                                        style="color:red">ใส่เฉพาะตัวเลข</strong></div>
+                                <label class="control-label col-xs-4 col-sm-2 col-md-5">ไม่ผ่อนชำระ : </label>
+                                <div class="radio col-md-7">
+                                    <input type="checkbox" name="fix_" id="fix_" value="fix_0">
+                                    <input type="hidden" name="fix_0" id="fix_0" value="">
+
+                                </div>
+
+                            </div>
+                            <!--
+                      <label class="control-label col-sm-1 col-md-1" >0  % : </label>
+                      <div class="col-sm-1 col-md-1">
+                          <div class="checkbox">
+                              <input type="checkbox" name="chk_zero" id="chk_zero" />
+                          </div>
+                      </div>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4 col-md-4"></label>
+                            <div class="col-sm-8 col-md-8">
+                                <button class="btn btn-success" type="button" onclick="check_vala4();">Print A4 <span
+                                        class="glyphicon glyphicon-print"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" style="padding-top:20px">
+                    <div class="col-xs-12 col-sm- col-md-12 panel panel-default">
+                        <label class="control-label col-sm-3 col-md-3" style="top: -11px;">ประเภท</label>
+                        <div class="">
+                            <div class="form-check form-check-inline col-sm-12 col-md-12">
+                                <input class="form-check-input col-sm-3 col-md-3" type="radio" name="typespec"
+                                    id="normal" value="normal" checked="">
+                                <label class="control-label col-sm-9 col-md-9" for="normal">Normal</label>
+                            </div>
+                            <div class="form-check form-check-inline col-sm-12 col-md-12">
+                                <input class="form-check-input col-sm-3 col-md-3" type="radio" name="typespec"
+                                    id="gamming" value="gamming">
+                                <label class="control-label col-sm-9 col-md-9" for="gamming">Gaming</label>
+                            </div>
+                            <div class="form-check form-check-inline col-sm-12 col-md-12">
+                                <input class="form-check-input col-sm-3 col-md-3" type="radio" name="typespec"
+                                    id="luxury" value="luxury">
+                                <label class="control-label col-sm-9 col-md-9" for="luxury">Luxury</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3" style="padding-top:20px">
+                    <div class="col-xs-12 col-sm- col-md-12 panel panel-default">
+                        <label class="control-label col-sm-3 col-md-3" style="top: -11px;">ป้าย</label>
+                        <div class="">
+                            <div class="form-check form-check-inline col-sm-12 col-md-12" style="padding: 5px;">
+                                <input class="form-check-input col-sm-2 col-md-2" type="radio" name="signspec" id="hot"
+                                    value="hot">
+                                <div class="col-sm-1 col-md-1" style="margin-top: -16px; width: 25%; left: -12px;">
+                                    <img src="https://sys.advice.co.th/images_nas/advicedealer/printspec/signnew/normal/Hot-Blue.png"
+                                        width="300%" style="">
+                                </div>
+                                <label class="control-label col-sm-7 col-md-7" for="gamming">HOT!</label>
+                            </div>
+                            <div class="form-check form-check-inline col-sm-12 col-md-12" style="padding: 5px;">
+                                <input class="form-check-input col-sm-2 col-md-2" type="radio" name="signspec"
+                                    id="arrival" value="arrival">
+                                <div class="col-sm-1 col-md-1" style="margin-top: -16px; width: 25%; left: -12px;">
+                                    <img src="https://sys.advice.co.th/images_nas/advicedealer/printspec/signnew/normal/New-Arrival-Blue.png"
+                                        width="300%" style="">
+                                </div>
+                                <label class="control-label col-sm-7 col-md-7" for="gamming">New Arrival</label>
+                            </div>
+                            <div class="form-check form-check-inline col-sm-12 col-md-12" style="padding: 5px;">
+                                <input class="form-check-input col-sm-2 col-md-2" type="radio" name="signspec"
+                                    id="bestseller" value="bestseller">
+                                <div class="col-sm-1 col-md-1" style="margin-top: -16px; width: 25%; left: -12px;">
+                                    <img src="https://sys.advice.co.th/images_nas/advicedealer/printspec/signnew/normal/Best-Seller-Blue.png"
+                                        width="300%" style="">
+                                </div>
+                                <label class="control-label col-sm-7 col-md-7" for="gamming">Best Seller</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Modal -->
+    <div id="alert_modal" class="modal fade" role="dialog" style="margin-top: 10%; display: none;">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <div class="row">
+                        <div class="text-danger text-center" id="text_alert" style="padding:20px">
+                            <h3>กรุณากรอก Code สินค้า</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://www.advice.co.th/public/advicedealer/printspec/js/jquery-3.1.0.min.js"></script>
+    <script src="https://www.advice.co.th/public/advicedealer/printspec/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://www.advice.co.th/public/advicedealer/printspec/js/notebook.js?v=1"></script>
+    <script type="text/javascript">
+        var opcen = '';
+        /*$(function(){
+            $('#currency').bind('change', function(){
+                var currency=$('#currency').val();
+                var v1="notebook_a4/pdf.php";
+                //var v2="big_notebook/pdf.php";
+                var v2 = "notebook_a4/pdf.php";
+                if(currency=="B"){
+                    $('#myform').attr('action',v1);
+                }else{
+                    $('#myform').attr('action',v2);
+                    alert("กรณีเลือกสกุลเงินที่ไม่ใช่เงินบาท โปรแกรมจะไม่สามารถแสดงราคาเก่าได้");
+                }
+            });
+        
+        
+            $('#chk_zero').bind('change', function(){
+                $('#bank_per').toggle();
+            });
+        });*/
+        function check_vala4() {
+            var code_val = $("input[name=code]").val();
+            var sale = $("input[name=sale]:checked").val();
+            var fix_ = $("input[name=fix_]:checked").val();
+            $("input[name=fix_0]").val(fix_);
+            var price = $("#price").val()
+            if (code_val == "") {
+                //alert("กรุณากรอก Code  สินค้า");
+                $("#text_alert").html("<h3>กรุณากรอก Code  สินค้า</h3>");
+                $("#alert_modal").modal();
+            } else if (sale !== undefined && price == "") {
+                //alert("กรุณากรอกราคา Sale");
+                $("#text_alert").html("<h3>กรุณากรอกราคา Sale</h3>");
+                $("#alert_modal").modal();
+            } else {
+                $("#myform").submit();
+            }
+
+        }
+        
+        function chk_type(code, tthis, name) {
+            var code = code;
+            var n = code.length;
+
+            if (n == 8 && code.substr(0, 1) == "A") {
+                $.ajax({
+                    type: "POST",
+                    url: "https://www.advice.co.th/advicedealer/printspec/check_type" + "/" + code,
+                    data: "page=notebook",
+
+                    success: function (data) { //alert(data);
+                        //$('.show_themes').html(data);
+                        data = data.trim();
+                        $('.' + name).html('');
+                        if (data == "zero") {
+                            opcen = 'T';
+                            if (tthis == '1') $('#code1').val(code);
+                            if (tthis == '2') $('#code2').val(code);
+                            $('.' + name).html('สินค้ารายการนี้มี  0  %');
+                            return true;
+                        } else if (data == "Y") {
+                            return true;
+                        } else {
+                            //alert("code นี้ไม่สามารถ Print Spec ได้ครับ เนื่องจากไม่อยู่ในหมวดที่เรากำหนดไว้");
+                            $("#text_alert").html("<h3>code " + code + " ไม่สามารถ Print Spec ได้ครับ เนื่องจากไม่อยู่ในหมวดที่เรากำหนดไว้</h3>");
+                            $("#alert_modal").modal();
+                            $("input[name=" + name + "]").val("");
+                        }
+                    }
+                });
+            }
+        }
+        function clearRadio(el) {
+            console.log($(el).is(":checked"), $(el).hasClass("test"))
+            if ($(el).is(":checked") && $(el).hasClass("test")) {
+                $(el).prop("checked", false); $(el).removeClass("test")
+            } else {
+                $(el).addClass("test")
+            }
+        }
+        function toggle_div(num) {
+            $("#new" + num).slideToggle(200);
+        }
+        /*function op_submit(){
+            var cc1=$('#code1').val();
+            var cc2=$('#code2').val();
+            var txtds='';
+            if(cc1 !='')txtds ='?code='+cc1;
+            if(cc2 !=''){
+                if(cc1 !='')txtds +='&code2='+cc2;
+                else txtds ='?code2='+cc2;
+            }
+            if(opcen=='T'){
+            var open_pop=window.open('printspec/zero/pdf.php'+txtds);
+          if(!open_pop)alert('โปรดปลดบล็อคป๊อปอัพของท่านก่อนปริ้น');
+            }
+        }*/
+    </script>
+    <script defer=""
+        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon="{&quot;rayId&quot;:&quot;8dd3da8ddfd5ee39&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2024.10.4&quot;,&quot;token&quot;:&quot;5d557e80ce954a64952b43d7c18b844d&quot;}"
+        crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+</html>
