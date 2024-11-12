@@ -7,12 +7,10 @@
     <script>
         async function readIDCard() {
             try {
-                // เรียก API ที่เชื่อมต่อกับเครื่องอ่านบัตร
-                const response = await fetch('/api/read-id-card'); // ใช้ API หรือ Endpoint ของ Backend
+                const response = await fetch('/api/read-id-card');
                 const data = await response.json();
-                
+
                 if (response.ok) {
-                    // แสดงข้อมูลในฟอร์ม
                     document.getElementById('fullName').value = data.fullName;
                     document.getElementById('citizenId').value = data.citizenId;
                     document.getElementById('dob').value = data.dob;
