@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มข้อมูลลูกค้า</title>
+    <script>
+        async function readIDCard() {
+            try {
+                // เรียก API ที่เชื่อมต่อกับเครื่องอ่านบัตร
+                const response = await fetch('/api/read-id-card'); // ใช้ API หรือ Endpoint ของ Backend
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // แสดงข้อมูลในฟอร์ม
+                    document.getElementById('fullName').value = data.fullName;
+                    document.getElementById('citizenId').value = data.citizenId;
+                    document.getElementById('dob').value = data.dob;
+                    document.getElementById('address').value = data.address;
+                } else {
+                    alert("ไม่สามารถดึงข้อมูลได้: " + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("เกิดข้อผิดพลาดในการอ่านข้อมูลจากบัตร");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>ฟอร์มข้อมูลลูกค้า</h2>
+    <form>
+        <label for="fullName">ชื่อ-นามสกุล:</label>
+        <input type="text" id="fullName" name="fullName" readonly><br><br>
+        
+        <label for="citizenId">เลขประจำตัวประชาชน:</label>
+        <input type="text" id="citizenId" name="citizenId" readonly><br><br>
+        
+        <label for="dob">วันเกิด:</label>
+        <input type="text" id="dob" name="dob" readonly><br><br>
+        
+        <label for="address">ที่อยู่:</label>
+        <textarea id="address" name="address" readonly></textarea><br><br>
+        
+        <button type="button" onclick="readIDCard()">อ่านข้อมูลบัตร</button>
+    </form>
+</body>
+</html>
