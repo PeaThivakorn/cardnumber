@@ -6,19 +6,26 @@
   <title>นาย กิตติภัค เพชรแวว</title>
   <script>
     function fetchData(month) {
-      // URL จาก Google Apps Script ที่คุณได้รับ
-      const url = 'https://script.google.com/macros/s/AKfycbwstcgtzaOXqee3lX7viPQo2GF4c3konTVQR8apwG5VleUcwQYzIIKGxVuVC8uLo_dPjQ/exec?month=' + month;
-
-      // เคลียร์ข้อมูลเก่าก่อนเพื่อป้องกันการซ้อนกันของข้อมูล
+      const url = 'https://script.google.com/macros/s/AKfycbybAtOBQViZGP9BL_6Xa2vFz5Cy7ryiwDotZjrokJj6eNTpVMKDwtIJfiaxtyl2PXiR9g/exec?month=' + month;
       document.getElementById('data').innerHTML = 'กำลังโหลดข้อมูล...';
 
       fetch(url)
         .then(response => response.json())
         .then(data => {
-          let output = '<h2>ข้อมูลการบันทึกเวลา นาย กิตติภัค เพชรแวว </h2><table border="1">';
+          let output = '<h2>ข้อมูลการบันทึกเวลา นาย กิตติภัค เพชรแวว</h2><table border="1">';
           output += '<tr><th>ประทับเวลา</th><th>ชื่อ-สกุล</th><th>บันทึกเวลา</th><th>เวลา</th><th>ที่อยู่อีเมล</th><th>รหัสนักศึกษา</th><th>รหัสผ่าน</th><th>หมายเหตุ</th></tr>';
+          
           data.forEach(item => {
-            output += `<tr>
+            let rowColor = '';
+            if (item.Note === "ออกงาน") {
+              rowColor = 'style="background-color: #FFCCCC;"'; // สีแดงอ่อน
+            } else if (item.FullName === "วันหยุดประจำสัปดาห์") {
+              rowColor = 'style="background-color: #FFFF99;"'; // สีเหลือง
+            } else if (item.FullName === "หยุดงาน") {
+              rowColor = 'style="background-color: #D3D3D3;"'; // สีเทา
+            }
+
+            output += `<tr ${rowColor}>
                         <td>${item.Timestamp}</td>
                         <td>${item.FullName}</td>
                         <td>${item.RecordTime}</td>
@@ -29,16 +36,20 @@
                         <td>${item.Note}</td>
                       </tr>`;
           });
+
           output += '</table>';
           document.getElementById('data').innerHTML = output;
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('data').innerHTML = 'เกิดข้อผิดพลาดในการโหลดข้อมูล';
+        });
     }
 
     function onMonthChange() {
       const month = document.getElementById('monthPicker').value;
-      if (month) {  // ตรวจสอบว่าเลือกเดือนแล้ว
-        fetchData(month);  // เรียกใช้ fetchData กับเดือนที่เลือก
+      if (month) {
+        fetchData(month);
       }
     }
   </script>
@@ -46,7 +57,6 @@
 <body>
 
   <h1>เลือกเดือนที่ต้องการแสดงข้อมูล</h1>
-  <!-- ฟอร์มสำหรับเลือกเดือน -->
   <input type="month" id="monthPicker" onchange="onMonthChange()">
   
   <div id="data">กรุณาเลือกเดือนเพื่อแสดงข้อมูล...</div>
